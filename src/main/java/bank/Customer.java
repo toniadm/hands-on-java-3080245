@@ -1,5 +1,6 @@
 package bank;
 
+// Create class named Customer
 public class Customer {
 
   private int id;
