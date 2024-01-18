@@ -8,7 +8,7 @@ public class Customer {
   private String password;
   private int accountId;
 
-  public Customer(int id, String name, String username, String password, int accountId) {
+  public Customer(int id, String name, String username, String password, double d) {
     setId(id);
     setName(name);
     setUsername(username);
