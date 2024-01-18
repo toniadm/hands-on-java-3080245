@@ -1,5 +1,7 @@
+// Create package named bank
 package bank;
 
+// Create Customer class
 public class Customer {
   private int id;
   private String name;
@@ -7,6 +9,7 @@ public class Customer {
   private String password;
   private int accountId;
 
+  // Constructor for the class
   public Customer(int id, String name, String username, String password, int accountId){
     setId(id);
     setName(name);
@@ -15,6 +18,7 @@ public class Customer {
     setAccountId(accountId);
   }
 
+  // Methods for the class
   public int getId() {
     return this.id;
   }
