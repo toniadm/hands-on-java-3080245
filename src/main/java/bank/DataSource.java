@@ -56,7 +56,7 @@ public class DataSource {
         account = new Account(
           resultSet.getInt("id"), 
           resultSet.getString("type"), 
-          resultSet.getInt("balance"));
+          resultSet.getDouble("balance"));
       }
 
     } catch (SQLException e) {
