@@ -31,8 +31,12 @@ public class DataSource {
 
       statement.setString(1, username);
       try (ResultSet resultSet = statement.executeQuery()) {
-        customer = new Customer(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("username"),
-            resultSet.getString("password"), resultSet.getInt("account_id"));
+        customer = new Customer(
+          resultSet.getInt("id"), 
+          resultSet.getString("name"), 
+          resultSet.getString("username"),
+          resultSet.getString("password"), 
+          resultSet.getInt("account_id"));
       }
 
     } catch (SQLException e) {
@@ -49,8 +53,10 @@ public class DataSource {
     try (Connection connection = connect(); PreparedStatement statement = connection.prepareStatement(sql)) {
       statement.setInt(1, accountId);
       try (ResultSet resultSet = statement.executeQuery()) {
-        account = new Account(resultSet.getInt("id"), resultSet.getString("type"), resultSet.getInt("balance"));
-
+        account = new Account(
+          resultSet.getInt("id"), 
+          resultSet.getString("type"), 
+          resultSet.getInt("balance"));
       }
 
     } catch (SQLException e) {
