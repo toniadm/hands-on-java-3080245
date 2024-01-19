@@ -21,6 +21,7 @@ public class DataSource {
     return connection;
   }
 
+  // Retrieve Customer from the database
   public static Customer getCustomer(String username, String columnLabel) {
     String sql = "select * from customers where username = ?";
     Customer customer = null;
@@ -42,14 +43,13 @@ public class DataSource {
     }
 
     return customer;
-  };
+  }
+
   
   public static void main(String[] args){
     Customer customer = getCustomer("twest8o@friendfeed.com", null);
     System.out.println(customer.getName());
 
-
-    
-
   }
+
 }
