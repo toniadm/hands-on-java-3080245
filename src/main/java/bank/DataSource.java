@@ -48,12 +48,12 @@ public class DataSource {
   }
 
   // Retrieve Account ID from the database
-  public static Account getAccount(int AccountId, String columnLabel) {
+  public static Account getAccount(int accountId, String columnLabel) {
     String sql = "select * from accounts where id = ?";
     Account account = null;
     try (Connection connection = connect();
         PreparedStatement statement = connection.prepareStatement(sql)) {
-      statement.setInt(1, AccountId);
+      statement.setInt(1, accountId);
       try (ResultSet resultSet = statement.executeQuery()) {
         account = new Account(
             resultSet.getInt("id"),
