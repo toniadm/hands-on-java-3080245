@@ -22,6 +22,7 @@ public class DataSource {
     return connection;
   }
 
+  // Retrieve customer username from the database
   public static Customer getCustomer(String username) {
     String sql = "select * from customers where username = ?";
     Customer customer = null;
@@ -46,8 +47,33 @@ public class DataSource {
     return customer;
   }
 
+  // Retrieve Account ID from the database
+  public static Account getAccount(int AccountId, String columnLabel) {
+    String sql = "select * from accounts where id = ?";
+    Account account = null;
+    try (Connection connection = connect();
+        PreparedStatement statement = connection.prepareStatement(sql)) {
+      statement.setInt(1, AccountId);
+      try (ResultSet resultSet = statement.executeQuery()) {
+        account = new Account(
+            resultSet.getInt("id"),
+            resultSet.getString("type"),
+            resultSet.getInt("balance"));
+
+      }
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    return account;
+  }
+
   public static void main(String[] args) {
     Customer customer = getCustomer("twest8o@friendfeed.com");
     System.out.println(customer.getName());
+
+    Account account = getAccount(10385, null);
+    System.out.println(account.getBalance());
   }
 }
